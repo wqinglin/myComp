@@ -4,8 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "dev": "docz dev",
+    "start": "npm run dev",
+    "build:doc": "rimraf doc-site && docz build",
+    "preview:doc": "docz serve",
+    "lint": "npm run lint:style && npm run lint:prettier",
+    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx ./components",
+    "lint:prettier": "prettier --check \"components/**/*\" --end-of-line auto",
+    "lint:style": "stylelint --fix 'components/**/*.{css,scss,less}' --cache"
   },
   "keywords": [],
   "author": "",
@@ -18,12 +25,16 @@
     "@umijs/fabric": "^4.0.1",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
+    "docz": "^2.4.0",
+    "gatsby-plugin-less": "^7.13.1",
     "husky": "^9.0.11",
+    "less": "^4.2.0",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "^5.3.3"
+    "rimraf": "^5.0.5",
+    "typescript": "5.0.0"
   },
   "lint-staged": {
     "components/**/*.ts?(x)": [
@@ -48,6 +59,9 @@
     }
   },
   "dependencies": {
-    "prop-types": "^15.8.1"
+    "@emotion/core": "~10.0.0",
+    "eslint-plugin-jest": "^27.9.0",
+    "prop-types": "^15.8.1",
+    "react-scripts": "^5.0.1"
   }
 }

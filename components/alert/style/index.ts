@@ -1,1 +1,1 @@
-export { default as Alert } from './alert';
+import './index.less';
